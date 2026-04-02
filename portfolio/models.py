@@ -45,11 +45,12 @@ class Projeto(models.Model):
     descricao = models.TextField()
     conceitos_aplicados = models.TextField()
     data_inicio = models.DateField()
-    data_fim = models.DateField(null=True, blank=True) # Pode ainda não ter acabado
+    data_fim = models.DateField(null=True, blank=True) 
     imagem = models.ImageField(upload_to='projetos/')
     video_demo_url = models.URLField(blank=True, null=True)
     github_url = models.URLField(blank=True, null=True)
     destaque = models.BooleanField(default=False)
+    ano_letivo = models.CharField(max_length=20, blank=True, null=True) 
     
     unidade_curricular = models.ForeignKey(UnidadeCurricular, on_delete=models.CASCADE)
 

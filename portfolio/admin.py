@@ -22,9 +22,9 @@ class UnidadeCurricularAdmin(admin.ModelAdmin):
 admin.site.register(UnidadeCurricular, UnidadeCurricularAdmin)
 
 class ProjetoAdmin(admin.ModelAdmin):
-    list_display = ("titulo", "unidade_curricular", "data_inicio", "destaque")
+    list_display = ("titulo", "unidade_curricular", "ano_letivo", "data_inicio", "destaque")
     search_fields = ("titulo",)
-    list_filter = ("destaque", "unidade_curricular")
+    list_filter = ("destaque", "ano_letivo", "unidade_curricular")
 
 admin.site.register(Projeto, ProjetoAdmin) 
 
