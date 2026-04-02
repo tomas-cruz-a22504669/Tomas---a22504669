@@ -70,3 +70,18 @@ class Tecnologia(models.Model):
 
     def __str__(self):
         return self.nome
+
+class TFC(models.Model):
+    titulo = models.CharField(max_length=200)
+    autor = models.CharField(max_length=100)
+    ano = models.IntegerField()
+    resumo = models.TextField()
+    area = models.CharField(max_length=100)
+    interesse = models.CharField(max_length=100)
+    link = models.URLField(blank=True, null=True)
+    orientador = models.CharField(max_length=100)
+    
+    tecnologias = models.ManyToManyField(Tecnologia)
+
+    def __str__(self):
+        return self.titulo
