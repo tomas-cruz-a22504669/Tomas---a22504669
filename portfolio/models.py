@@ -34,9 +34,24 @@ class UnidadeCurricular(models.Model):
     descricao = models.TextField()
     imagem = models.ImageField(upload_to='ucs/')
     
-    # Relacionamentos
     licenciatura = models.ForeignKey(Licenciatura, on_delete=models.CASCADE)
     docentes = models.ManyToManyField(Docente)
 
     def __str__(self):
         return self.nome    
+
+class Projeto(models.Model):
+    titulo = models.CharField(max_length=200)
+    descricao = models.TextField()
+    conceitos_aplicados = models.TextField()
+    data_inicio = models.DateField()
+    data_fim = models.DateField(null=True, blank=True) # Pode ainda não ter acabado
+    imagem = models.ImageField(upload_to='projetos/')
+    video_demo_url = models.URLField(blank=True, null=True)
+    github_url = models.URLField(blank=True, null=True)
+    destaque = models.BooleanField(default=False)
+    
+    unidade_curricular = models.ForeignKey(UnidadeCurricular, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.titulo
