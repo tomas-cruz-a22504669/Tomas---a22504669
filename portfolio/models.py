@@ -73,15 +73,16 @@ class Tecnologia(models.Model):
 
 class TFC(models.Model):
     titulo = models.CharField(max_length=200)
-    autor = models.CharField(max_length=100)
-    ano = models.IntegerField()
-    resumo = models.TextField()
-    area = models.CharField(max_length=100)
-    interesse = models.CharField(max_length=100)
-    link = models.URLField(blank=True, null=True)
-    orientador = models.CharField(max_length=100)
+    autores = models.CharField(max_length=200)
+    orientadores = models.CharField(max_length=200)
+    licenciaturas = models.CharField(max_length=200)
+    ano = models.CharField(max_length=20)
+    sumario = models.TextField()
+    pdf_link = models.URLField(blank=True, null=True, max_length=500)
+    imagem = models.CharField(max_length=200, blank=True, null=True)
+    rating = models.IntegerField(default=0)
     
-    tecnologias = models.ManyToManyField(Tecnologia)
+    tecnologias = models.ManyToManyField(Tecnologia, blank=True)
 
     def __str__(self):
         return self.titulo
@@ -121,7 +122,6 @@ class Formacao(models.Model):
     descricao = models.TextField()
     certificado_url = models.URLField(blank=True, null=True)
     
-    # Relacionamentos
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     competencias = models.ManyToManyField(Competencia, blank=True)
 

@@ -36,9 +36,9 @@ class TecnologiaAdmin(admin.ModelAdmin):
 admin.site.register(Tecnologia, TecnologiaAdmin)
 
 class TFCAdmin(admin.ModelAdmin):
-    list_display = ("titulo", "autor", "ano", "area")
-    search_fields = ("titulo", "autor")
-    list_filter = ("ano", "area")
+    list_display = ("titulo", "autores", "ano", "rating")
+    search_fields = ("titulo", "autores")
+    list_filter = ("ano", "rating")
 
 admin.site.register(TFC, TFCAdmin)
 
