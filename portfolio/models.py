@@ -85,3 +85,17 @@ class TFC(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Competencia(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField()
+    nivel = models.CharField(max_length=50) 
+    tipo = models.CharField(max_length=50)
+    evidencia = models.CharField(max_length=200, blank=True, null=True) # Pode ser um link ou texto
+    
+    # Relacionamentos (N:M)
+    projetos = models.ManyToManyField(Projeto, blank=True)
+    tecnologias = models.ManyToManyField(Tecnologia, blank=True)
+
+    def __str__(self):
+        return self.nome
