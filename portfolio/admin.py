@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Licenciatura, Docente, UnidadeCurricular, Projeto, Tecnologia, TFC, Competencia
+from .models import Licenciatura, Docente, UnidadeCurricular, Projeto, Tecnologia, TFC, Competencia, Perfil
 
 class LicenciaturaAdmin(admin.ModelAdmin):
     list_display = ("nome", "sigla", "grau", "duracao_anos")
@@ -48,3 +48,9 @@ class CompetenciaAdmin(admin.ModelAdmin):
     list_filter = ("tipo", "nivel")
 
 admin.site.register(Competencia, CompetenciaAdmin)
+
+class PerfilAdmin(admin.ModelAdmin):
+    list_display = ("nome", "email")
+    search_fields = ("nome",)
+
+admin.site.register(Perfil, PerfilAdmin)

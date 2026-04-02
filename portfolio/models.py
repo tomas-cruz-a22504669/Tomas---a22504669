@@ -99,3 +99,15 @@ class Competencia(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Perfil(models.Model):
+    nome = models.CharField(max_length=100)
+    bio = models.TextField()
+    foto = models.ImageField(upload_to='perfil/')
+    email = models.EmailField()
+    github = models.URLField(blank=True, null=True)
+    linkedin = models.URLField(blank=True, null=True)
+    objetivo_profissional = models.TextField()
+
+    def __str__(self):
+        return self.nome
