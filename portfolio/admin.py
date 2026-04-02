@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Licenciatura, Docente, UnidadeCurricular, Projeto, Tecnologia, TFC, Competencia, Perfil
+from .models import Licenciatura, Docente, UnidadeCurricular, Projeto, Tecnologia, TFC, Competencia, Perfil, Formacao
 
 class LicenciaturaAdmin(admin.ModelAdmin):
     list_display = ("nome", "sigla", "grau", "duracao_anos")
@@ -53,4 +53,11 @@ class PerfilAdmin(admin.ModelAdmin):
     list_display = ("nome", "email")
     search_fields = ("nome",)
 
-admin.site.register(Perfil, PerfilAdmin)
+admin.site.register(Perfil, PerfilAdmin) 
+
+class FormacaoAdmin(admin.ModelAdmin):
+    list_display = ("nome", "instituicao", "tipo", "data_inicio")
+    search_fields = ("nome", "instituicao")
+    list_filter = ("tipo",)
+
+admin.site.register(Formacao, FormacaoAdmin)

@@ -111,3 +111,19 @@ class Perfil(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Formacao(models.Model):
+    nome = models.CharField(max_length=100)
+    instituicao = models.CharField(max_length=100)
+    tipo = models.CharField(max_length=50)
+    data_inicio = models.DateField()
+    data_fim = models.DateField(blank=True, null=True)
+    descricao = models.TextField()
+    certificado_url = models.URLField(blank=True, null=True)
+    
+    # Relacionamentos
+    perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE)
+    competencias = models.ManyToManyField(Competencia, blank=True)
+
+    def __str__(self):
+        return f"{self.nome} - {self.instituicao}"
