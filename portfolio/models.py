@@ -55,3 +55,18 @@ class Projeto(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Tecnologia(models.Model):
+    nome = models.CharField(max_length=100)
+    tipo = models.CharField(max_length=50) 
+    descricao = models.TextField()
+    logo = models.ImageField(upload_to='tecnologias/')
+    website_oficial = models.URLField(blank=True, null=True)
+    nivel_dominio = models.IntegerField()
+    nivel_interesse = models.IntegerField()
+    destaque = models.BooleanField(default=False)
+    
+    projetos = models.ManyToManyField(Projeto, blank=True)
+
+    def __str__(self):
+        return self.nome
