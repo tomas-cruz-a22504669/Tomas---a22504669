@@ -128,3 +128,15 @@ class Formacao(models.Model):
 
     def __str__(self):
         return f"{self.nome} - {self.instituicao}"
+
+class Recurso(models.Model):
+    titulo = models.CharField(max_length=100)
+    tipo = models.CharField(max_length=50) 
+    url = models.URLField()
+    descricao = models.TextField(blank=True, null=True)
+    
+    projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE, null=True, blank=True)
+    tfc = models.ForeignKey(TFC, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.titulo
