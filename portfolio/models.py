@@ -33,6 +33,9 @@ class UnidadeCurricular(models.Model):
     ects = models.IntegerField()
     descricao = models.TextField()
     imagem = models.ImageField(upload_to='ucs/')
+    objetivos = models.TextField(blank=True, null=True)
+    programa = models.TextField(blank=True, null=True)
+    avaliacao = models.TextField(blank=True, null=True)
     
     licenciatura = models.ForeignKey(Licenciatura, on_delete=models.CASCADE)
     docentes = models.ManyToManyField(Docente)

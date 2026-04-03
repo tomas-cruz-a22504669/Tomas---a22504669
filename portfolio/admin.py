@@ -15,9 +15,9 @@ admin.site.register(Licenciatura, LicenciaturaAdmin)
 admin.site.register(Docente, DocenteAdmin)
 
 class UnidadeCurricularAdmin(admin.ModelAdmin):
-    list_display = ("nome", "codigo", "ano_curricular", "semestre", "licenciatura")
-    search_fields = ("nome", "codigo")
-    list_filter = ("ano_curricular", "semestre")
+    list_display = ("nome", "codigo", "ano_curricular", "ects")
+    search_fields = ("nome", "codigo", "objetivos", "programa") 
+    list_filter = ("ano_curricular", "semestre", "licenciatura")    
 
 admin.site.register(UnidadeCurricular, UnidadeCurricularAdmin)
 
