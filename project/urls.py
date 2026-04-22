@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('curso/', include('curso.urls')),
     path('', include('curso.urls')),  
+    path('portfolio/', include('portfolio.urls')),
 ]
 
 if settings.DEBUG:

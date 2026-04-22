@@ -1,0 +1,21 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block content %}
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>Meus Projetos</h2>
+        <a href="{% url 'novo_projeto' %}" class="btn btn-green">+ Novo Projeto</a>
+    </div>
+
+    {% for projeto in projetos %}
+        <div class="card">
+            <h3>{{ projeto.titulo }}</h3>
+            <div style="margin-top: 15px;">
+                <a href="{% url 'edita_projeto' projeto.id %}" class="btn btn-orange">Editar</a>
+                <a href="{% url 'apaga_projeto' projeto.id %}" class="btn btn-red">Apagar</a>
+            </div>
+        </div>
+    {% empty %}
+        <p>Ainda não tens nenhum projeto. Clica em "Novo Projeto" para começar!</p>
+    {% endfor %}
+
+{% endblock %}
