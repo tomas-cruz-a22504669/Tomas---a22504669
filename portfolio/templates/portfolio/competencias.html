@@ -1,0 +1,14 @@
+{% extends 'portfolio/layout.html' %}
+{% block content %}
+    <div style="display: flex; justify-content: space-between;">
+        <h2>Competências</h2>
+        <a href="{% url 'nova_competencia' %}" class="btn btn-green">+ Nova</a>
+    </div>
+    {% for c in competencias %}
+        <div class="card">
+            <h3>{{ c.nome }}</h3>
+            <a href="{% url 'edita_competencia' c.id %}" class="btn btn-orange">Editar</a>
+            <a href="{% url 'apaga_competencia' c.id %}" class="btn btn-red">Apagar</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'portfolio/layout.html' %}
+{% block content %}
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <h2>Tecnologias</h2>
+        <a href="{% url 'nova_tecnologia' %}" class="btn btn-green">+ Nova Tecnologia</a>
+    </div>
+    {% for tec in tecnologias %}
+        <div class="card">
+            <h3>{{ tec.nome }}</h3> <div style="margin-top: 15px;">
+                <a href="{% url 'edita_tecnologia' tec.id %}" class="btn btn-orange">Editar</a>
+                <a href="{% url 'apaga_tecnologia' tec.id %}" class="btn btn-red">Apagar</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -25,6 +25,18 @@ urlpatterns = [
     path('curso/', include('curso.urls')),
     path('', include('curso.urls')),  
     path('portfolio/', include('portfolio.urls')),
+    path('tecnologias/', views.tecnologias_view, name='tecnologias'),
+    path('tecnologia/nova/', views.nova_tecnologia_view, name='nova_tecnologia'),
+    path('tecnologia/edita/<int:tecnologia_id>/', views.edita_tecnologia_view, name='edita_tecnologia'),
+    path('tecnologia/apaga/<int:tecnologia_id>/', views.apaga_tecnologia_view, name='apaga_tecnologia'),
+    path('competencias/', views.competencias_view, name='competencias'),
+    path('competencia/nova/', views.nova_competencia_view, name='nova_competencia'),
+    path('competencia/edita/<int:competencia_id>/', views.edita_competencia_view, name='edita_competencia'),
+    path('competencia/apaga/<int:competencia_id>/', views.apaga_competencia_view, name='apaga_competencia'),
+    path('formacoes/', views.formacoes_view, name='formacoes'),
+    path('formacao/nova/', views.nova_formacao_view, name='nova_formacao'),
+    path('formacao/edita/<int:formacao_id>/', views.edita_formacao_view, name='edita_formacao'),
+    path('formacao/apaga/<int:formacao_id>/', views.apaga_formacao_view, name='apaga_formacao'),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,10 @@
+{% extends 'portfolio/layout.html' %}
+{% block content %}
+<h2>Apagar Tecnologia</h2>
+<p>Apagar definitivamente esta tecnologia?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-red">Sim, apagar</button>
+    <a href="{% url 'tecnologias' %}">Cancelar</a>
+</form>
+{% endblock %}

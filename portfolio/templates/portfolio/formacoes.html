@@ -1,0 +1,14 @@
+{% extends 'portfolio/layout.html' %}
+{% block content %}
+    <div style="display: flex; justify-content: space-between;">
+        <h2>Formações</h2>
+        <a href="{% url 'nova_formacao' %}" class="btn btn-green">+ Nova</a>
+    </div>
+    {% for f in formacoes %}
+        <div class="card">
+            <h3>{{ f.instituicao }} - {{ f.curso }}</h3>
+            <a href="{% url 'edita_formacao' f.id %}" class="btn btn-orange">Editar</a>
+            <a href="{% url 'apaga_formacao' f.id %}" class="btn btn-red">Apagar</a>
+        </div>
+    {% endfor %}
+{% endblock %}
