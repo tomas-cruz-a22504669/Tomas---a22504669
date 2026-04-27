@@ -1,0 +1,31 @@
+{% extends 'portfolio/layout.html' %}
+{% block content %}
+
+<h2>Sobre esta Aplicação</h2>
+
+<section>
+    <h3>1. Arquitetura MVT do Django</h3>
+    <img src="URL_DA_TUA_FOTO_DO_DESENHO_AQUI" alt="Desenho Arquitetura MVT" width="400">
+    
+    <p>O Django utiliza o padrão MVT (Model-View-Template):</p>
+    <ul>
+        <li><strong>Model (M):</strong> Gere a base de dados. Define as tabelas e as relações (ex: models.py).</li>
+        <li><strong>View (V):</strong> É o "cérebro". Recebe o pedido do utilizador, vai buscar os dados ao Model e envia-os para o Template (ex: views.py).</li>
+        <li><strong>Template (T):</strong> É a interface do utilizador. O ficheiro HTML que junta o design com os dados enviados pela View (ex: sobre.html).</li>
+    </ul>
+    <p><strong>Fluxo:</strong> Utilizador faz pedido -> Django URL encaminha -> View processa -> View pede dados ao Model -> View envia dados para o Template -> Utilizador vê a página final.</p>
+    
+    </section>
+
+<section>
+    <h3>2. Modelação</h3>
+    <p>(Aqui vais colocar a foto do teu Diagrama Entidade-Relação)</p>
+</section>
+
+<section>
+    <h3>3. GitHub</h3>
+    <p><a href="LINK_DO_TEU_REPO_AQUI" target="_blank">Aceder ao meu Repositório</a></p>
+    <p>O GitHub é fundamental para o controlo de versões, permitindo guardar o histórico do código, reverter erros e facilitar o trabalho em qualquer máquina através dos Codespaces.</p>
+</section>
+
+{% endblock %}

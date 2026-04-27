@@ -6,4 +6,5 @@ urlpatterns = [
     path('novo/', views.novo_projeto_view, name='novo_projeto'),
     path('edita/<int:projeto_id>/', views.edita_projeto_view, name='edita_projeto'),
     path('apaga/<int:projeto_id>/', views.apaga_projeto_view, name='apaga_projeto'),
+    path('sobre/', views.sobre_view, name='sobre'),
 ]

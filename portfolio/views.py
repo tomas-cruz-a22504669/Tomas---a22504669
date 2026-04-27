@@ -106,3 +106,6 @@ def apaga_formacao_view(request, formacao_id):
         obj.delete()
         return redirect('formacoes')
     return render(request, 'portfolio/formacao_apaga.html', {'obj': obj})
+
+def sobre_view(request):
+    return render(request, 'portfolio/sobre.html')    
