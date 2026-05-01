@@ -23,12 +23,23 @@
     <header>
         <h2>O Meu Portfólio</h2>
         <nav>
-            <a href="{% url 'projetos' %}">Projetos</a>
-            <a href="{% url 'tecnologias' %}">Tecnologias</a>
-            <a href="{% url 'competencias' %}">Competências</a>
-            <a href="{% url 'formacoes' %}">Formações</a>
-            <a href="{% url 'sobre' %}">Sobre</a>
-            </nav>
+    <a href="{% url 'projetos' %}">Projetos</a>
+    <a href="{% url 'tecnologias' %}">Tecnologias</a>
+    <a href="{% url 'competencias' %}">Competências</a>
+    <a href="{% url 'formacoes' %}">Formações</a>
+    <a href="{% url 'sobre' %}">Sobre</a>
+    
+    {% if user.is_authenticated %}
+        <span style="margin-left: 20px; color: #3498db;">{{ user.username }}</span>
+        <form action="{% url 'logout' %}" method="POST" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" style="background:none; border:none; color:white; font-weight:bold; margin-left: 15px; font-size:16px; cursor:pointer;">Sair</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}" style="margin-left: 30px;">Login</a>
+        <a href="{% url 'registo' %}">Registar</a>
+    {% endif %}
+</nav>
     </header>
 
     <main>

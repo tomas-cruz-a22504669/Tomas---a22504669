@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from portfolio import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,6 +38,7 @@ urlpatterns = [
     path('formacao/nova/', views.nova_formacao_view, name='nova_formacao'),
     path('formacao/edita/<int:formacao_id>/', views.edita_formacao_view, name='edita_formacao'),
     path('formacao/apaga/<int:formacao_id>/', views.apaga_formacao_view, name='apaga_formacao'),
+    path('accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

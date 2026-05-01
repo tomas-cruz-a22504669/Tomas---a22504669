@@ -1,0 +1,10 @@
+{% extends 'portfolio/layout.html' %} {% block content %}
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Entrar</button>
+    </form>
+    <p>Ou entra sem senha:</p>
+    <a href="{% url 'pedir_link' %}" class="btn btn-gray">Usar Link Mágico</a>
+{% endblock %}
